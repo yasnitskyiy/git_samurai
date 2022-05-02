@@ -1,12 +1,17 @@
 import './App.css';
-import Header from "./Header";
-import Technologies from "./Technologies";
+import Header from "./components/Header";
+import Friends from "./components/Friends";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+
 
 const App = () => {
   return (
-   <div>
+   <div className={'box'}>
        <Header />
-       <Technologies />
+       <Friends />
+       <Main />
+       <Footer />
    </div>
   );
 }
