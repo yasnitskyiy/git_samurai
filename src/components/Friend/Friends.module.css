@@ -1,0 +1,17 @@
+.friends{
+    grid-column: 2 / span 1;
+    grid-row: 2;
+    background-color: burlywood;
+    width: 200px;
+    padding: 20px;
+}
+.friendsTitle{
+    margin: 0;
+    text-align: center;
+}
+.friendsList{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+}
