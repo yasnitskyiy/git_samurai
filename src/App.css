@@ -2,14 +2,14 @@
 *{
   font-family: 'Poppins', sans-serif;
 }
-.box{
+.wrapper{
   display: grid;
   grid-template-columns: 1100px 200px;
   grid-template-rows: auto;
   justify-content: center;
   gap: 5px;
 }
-.main{
+.content{
   grid-column: 1;
   grid-row: 2;
   background-color: #e5e5e5;

@@ -10,12 +10,12 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 const App = () => {
     return (
         <BrowserRouter>
-            <div className={'box'}>
+            <div className={'wrapper'}>
                 <Header/>
-                <div className={`main`}>
+                <div className={`content`}>
                     <Routes>
-                        <Route path="/main" element={<Main />}/>
-                        <Route path="/dialogs" element={<Dialogs />}/>
+                        <Route path="/main/*" element={<Main />}/>
+                        <Route path="/dialogs/*" element={<Dialogs />}/>
                     </Routes>
                 </div>
                 <Friends/>

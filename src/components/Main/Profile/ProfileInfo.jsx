@@ -10,7 +10,7 @@ const ProfileInfo = (props) => {
             <div className={classes.userInfo}>
                 <h1>{props.name}</h1>
                 <ul>
-                    <li><h4>City:</h4> {props.city}</li>
+                    <li><h4>Location:</h4> {props.location}</li>
                     <li><h4>About:</h4> {props.about}</li>
                 </ul>
             </div>

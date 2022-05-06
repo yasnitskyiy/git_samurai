@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 
 const Header = () => {
     return(
-        <header className={`gridItem ${classes.header}`}>
+        <header className={classes.header}>
             <div className={classes.headerNav}>
                 <NavLink to="/main">
                     <h1>MY SOCIAL NETWORK</h1>

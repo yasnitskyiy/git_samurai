@@ -1,11 +1,30 @@
 .dialogs{
     display: grid;
-    grid-template-columns: 240px 800px;
+    grid-template-columns: 140px 900px;
     height: 100%;
 }
 .dialogsItems{
     grid-column: 1;
+    background-color: #fff8ca;
 }
 .messages{
     grid-column: 2;
+}
+.dialogsItems ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.activeDialog{
+    background-color: #99ccce;
+    font-weight: bold;
+}
+.dialogs textarea{
+    width: 100%;
+    margin-left: 30px;
+}
+
+.dialogsItems a{
+    font-weight: normal;
 }

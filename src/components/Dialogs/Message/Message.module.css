@@ -1,0 +1,16 @@
+.myMessageWrapper{
+    text-align: right;
+}
+
+.myMessage{
+    background-color: #fff8ca;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    padding: 5px 20px 5px 20px;
+    border-radius: 15px;
+    display: inline-flex;
+}
+
+.myMessage p{
+    text-align: justify;
+}
