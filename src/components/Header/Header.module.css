@@ -1,7 +1,7 @@
 .header{
     grid-column: 1 / span 2;
     grid-row: 1;
-    background-color: beige;
+    background-color: #fff8ca;
     height: 70px;
 }
 .headerNav{
@@ -13,4 +13,19 @@
 .headerNav h1{
     margin: 0 0 0 25px;
     padding: 0;
+}
+a, a.default{
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+a.active{
+    color: red;
+}
+.headerNav ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+    width: 400px;
 }

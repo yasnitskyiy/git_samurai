@@ -1,8 +1,7 @@
 .friends{
-    grid-column: 2 / span 1;
+    grid-column: 2;
     grid-row: 2;
-    background-color: burlywood;
-    width: 200px;
+    background-color: #fff8ca;
     padding: 20px;
 }
 .friendsTitle{
@@ -12,6 +11,11 @@
 .friendsList{
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 0;
+}
+.friends ul{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
 }

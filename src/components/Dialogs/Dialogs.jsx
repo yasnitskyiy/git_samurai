@@ -1,9 +1,13 @@
 import classes from "./Dialogs.module.css";
-
 const Dialogs = () => {
     return (
-        <div>
-            Dialogs
+        <div className={classes.dialogs}>
+            <div className={classes.dialogsItems}>
+                as
+            </div>
+            <div className={classes.messages}>
+                as
+            </div>
         </div>
     );
 }

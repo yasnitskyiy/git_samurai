@@ -12,13 +12,13 @@ const App = () => {
         <BrowserRouter>
             <div className={'box'}>
                 <Header/>
-                <Friends/>
-                <div className={`gridItem main`}>
+                <div className={`main`}>
                     <Routes>
                         <Route path="/main" element={<Main />}/>
                         <Route path="/dialogs" element={<Dialogs />}/>
                     </Routes>
                 </div>
+                <Friends/>
                 <Footer/>
             </div>
         </BrowserRouter>

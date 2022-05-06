@@ -2,7 +2,7 @@
     display: flex;
     grid-column: 1 / span 2;
     grid-row: 3;
-    background-color: beige;
+    background-color: #fff8ca;
     height: 80px;
     align-items: center;
     justify-content: space-around;

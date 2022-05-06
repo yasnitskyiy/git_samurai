@@ -1,0 +1,11 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 240px 800px;
+    height: 100%;
+}
+.dialogsItems{
+    grid-column: 1;
+}
+.messages{
+    grid-column: 2;
+}

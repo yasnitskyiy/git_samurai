@@ -1,0 +1,18 @@
+.profile{
+    display: flex;
+}
+.avatar img{
+    height: 300px;
+    width: 290px;
+}
+.userInfo ul{
+    list-style-type: none;
+    text-align: justify;
+}
+.userInfo h4{
+    display: inline;
+}
+.userInfo h1{
+    text-align: center;
+    margin-top: 0;
+}
