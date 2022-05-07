@@ -5,9 +5,26 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+let dialogs = [
+    {id: 1, name: "Vlad"},
+    {id: 2, name: "Oleg"},
+    {id: 3, name: "Polina"},
+    {id: 4, name: "Ilona"},
+]
+
+let messages = [
+    {id: 1, name: "Hello world"},
+    {id: 2, name: "React cool, how about continue work a bit harder?!"},
+    {id: 3, name: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." +
+            " Accusamus amet animi aperiam dignissimos distinctio fuga impedit" +
+            " itaque, nemo odit officiis placeat quia ratione reiciendis saepe" +
+            " sunt ullam ut voluptas voluptatem?"},
+]
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App dialogsData={dialogs} messagesData={messages}/>
   </React.StrictMode>
 );
 
