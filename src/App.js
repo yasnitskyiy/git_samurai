@@ -13,9 +13,17 @@ const App = (props) => {
                 <Header/>
                 <div className={`content`}>
                     <Routes>
-                        <Route path="" element={<Main />}/>
-                        <Route path="/main/*" element={<Main />}/>
-                        <Route path="/dialogs/*" element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
+                        <Route path="/" element={<Main
+                            state={props.state}
+                            updateNewPostText={props.updateNewPostText}
+                            addPost={props.addPost}
+                        />}/>
+                        <Route path="/main/*" element={<Main
+                            state={props.state}
+                            updateNewPostText={props.updateNewPostText}
+                            addPost={props.addPost}
+                        />}/>
+                        <Route path="/dialogs/*" element={<Dialogs state={props.state} addPost={props.addPost}/>}/>
                     </Routes>
                 </div>
                 <Friends/>
