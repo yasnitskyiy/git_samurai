@@ -13,9 +13,9 @@ const App = (props) => {
                 <Header/>
                 <div className={`content`}>
                     <Routes>
-                        <Route path="/" element={<Main profilePages={props.state.profilePages } onPostChange={props.onPostChange}/>}/>
-                        <Route path="/main/*" element={<Main profilePages={props.state.profilePages } onPostChange={props.onPostChange}/>}/>
-                        <Route path="/dialogs/*" element={<Dialogs state={props.state.messagesPages} addPost={props.addPost}/>}/>
+                        <Route path="" element={<Main />}/>
+                        <Route path="/main/*" element={<Main />}/>
+                        <Route path="/dialogs/*" element={<Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/>}/>
                     </Routes>
                 </div>
                 <Friends/>

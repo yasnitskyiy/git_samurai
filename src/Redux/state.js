@@ -35,7 +35,7 @@ let state = {
                 titleText: "Et illum inventore ipsum molestias necessitatibus perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae cum deleniti deserunt doloremque eaque ?"
             }
         ],
-        newPostText: ''
+        newPostText: 'test text'
     }
 }
 
@@ -49,8 +49,9 @@ export let addPost = (msgText) => {
     renderEntireTree(state);
 }
 
-export let onPostChange = (newText) => {
+export let updateNewPostText = (newText) => {
     state.profilePages.newPostText = newText;
+    renderEntireTree(state);
 }
 
 export default state;

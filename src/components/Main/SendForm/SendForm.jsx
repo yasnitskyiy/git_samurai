@@ -7,7 +7,7 @@ const SendForm = (props) => {
     let addPost = () => {
         if(props.where === "dialogs") {
             props.addPost(newPostElement.current.value);
-            newPostElement.current.value = '';
+            props.state.profilePages.newPostText('');
         }
         else{
             alert(newPostElement.current.value + " PROFILE") ;
@@ -15,12 +15,14 @@ const SendForm = (props) => {
     };
 
     let onPostChange = () => {
-        props.onPostChange(newPostElement.current.value);
+        debugger;
+        props.updateNewPostText(newPostElement.current.value);
+
     };
 
     return (
         <div className={classes.sendForm}>
-            <textarea ref={newPostElement} className={classes.textField} onChange={onPostChange} value={props.newText}/>
+            <textarea ref={newPostElement} className={classes.textField} value={props.state.profilePages.newPostText} onChange={onPostChange} />
             <button className={classes.btnSubmit} onClick={ addPost } >SEND</button>
         </div>
     );

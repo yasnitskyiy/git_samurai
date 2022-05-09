@@ -13,8 +13,11 @@ const Main = (props) => {
                 "Ad beatae cum deleniti deserunt doloremque eaque et illum inventore ipsum molestias necessitatibus \n" +
                 "perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus?"}
             />
-            <MyPosts profilePages={props.profilePages}/>
-            <SendForm where={'main'} onPostChange={props.onPostChange}/>
+            <MyPosts state={props.state}/>
+            <SendForm state={props.state}
+                      updateNewPostText={props.updateNewPostText}
+                      addPost={props.addPost}
+            />
         </div>
     );
 }
