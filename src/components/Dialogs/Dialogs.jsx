@@ -1,25 +1,49 @@
 import classes from "./Dialogs.module.css";
 import Message from "./Message/Message";
-import DialogItem from "./DialogItem/DialogItem";
-import MessageFriend from "./Message/MessageFriend";
-import SendForm from "../Main/SendForm/SendForm";
+import {NavLink} from "react-router-dom";
 
-const Dialogs = (props) => {
+const DialogItem = (props) => {
+    return (
+        // className={classes.activeDialog}
+        <li>
+            <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
+        </li>
+    );
+}
 
-    let dialogsElements = props.state.messagesPages.dialogs.map( d => <DialogItem name={d.name} id={d.id}/> )
-    let messagesElements = props.state.messagesPages.messages.map( m => (m.me) ? <Message msg={m.text}/> :<MessageFriend msg={m.text}/> )
+const Dialogs = () => {
+
+    let dialogsData = [
+        {id: 1, name: "Vlad"},
+        {id: 2, name: "Oleg"},
+        {id: 3, name: "Polina"},
+        {id: 4, name: "Ilona"},
+    ]
+
+    let messagesData = [
+        {id: 1, name: "Hello world"},
+        {id: 2, name: "React cool, how about continue work a bit harder?!"},
+        {id: 3, name: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." +
+                " Accusamus amet animi aperiam dignissimos distinctio fuga impedit" +
+                " itaque, nemo odit officiis placeat quia ratione reiciendis saepe" +
+                " sunt ullam ut voluptas voluptatem?"},
+    ]
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialogsItems}>
                 <ul>
-                    {dialogsElements}
+                    <DialogItem name={dialogsData[0].name} id={dialogsData[0].id}/>
+                    <DialogItem name={dialogsData[1].name} id={dialogsData[1].id}/>
+                    <DialogItem name={'Polina'} id={'3'}/>
+                    <DialogItem name={'Ilona'} id={'4'}/>
+
                 </ul>
             </div>
             <div className={classes.messages}>
-                {messagesElements}
-            </div>
-            <div className={classes.sendForm}>
-                <SendForm where={'dialogs'} addPost={props.addPost} state={props.state}/>
+                <Message msg={messagesData[0].name}/>
+                <Message msg={messagesData[1].name}/>
+
             </div>
         </div>
     );
