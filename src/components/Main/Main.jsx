@@ -1,10 +1,11 @@
-import classes from './Main.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./Profile/ProfileInfo";
+import SendForm from "./SendForm/SendForm";
+import classes from "./Main.module.css";
 
-const Main = () => {
+const Main = (props) => {
     return(
-        <div>
+        <div className={classes.mainBox}>
             <ProfileInfo
                 name={'Yasnitskyi Yurii'}
                 location={'Ukraine / Lviv'}
@@ -12,7 +13,8 @@ const Main = () => {
                 "Ad beatae cum deleniti deserunt doloremque eaque et illum inventore ipsum molestias necessitatibus \n" +
                 "perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus?"}
             />
-            <MyPosts />
+            <MyPosts profilePages={props.profilePages}/>
+            <SendForm where={'main'} onPostChange={props.onPostChange}/>
         </div>
     );
 }

@@ -25,3 +25,6 @@
 .dialogsItems a{
     font-weight: normal;
 }
+.dialogs .sendForm{
+    grid-column: 2;
+}
