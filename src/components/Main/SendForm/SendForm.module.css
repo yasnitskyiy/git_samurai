@@ -1,6 +1,6 @@
 .sendForm{
     display: flex;
-    margin-top: 30px;
+    padding-bottom: 30px;
 }
 .sendForm .textField{
     flex-grow: 1;

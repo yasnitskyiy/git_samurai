@@ -1,4 +1,6 @@
-import {renderEntireTree} from "../render";
+let renderEntireTree = () => {
+    console.log('change');
+}
 
 let state = {
     messagesPages: {
@@ -19,39 +21,60 @@ let state = {
             {id: 4, text: "putin hu*lo and this info all knows!", me: false},
             {id: 5, text: "Totally confirm your words!!!", me: true},
             {id: 6, text: "React cool, how about continue work a bit harder?!", me: true},
-        ]
+        ],
+        newMessageText: ''
     },
     profilePages:{
         posts:[
             {
                 id: 1,
-                title: "Some new post",
-                titleText: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae cum deleniti deserunt doloremque eaque et illum inventore ipsum molestias necessitatibus  perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus?"
+                postText: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae cum deleniti deserunt doloremque eaque et illum inventore ipsum molestias necessitatibus  perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus?"
             },
 
             {
                 id: 2,
-                title: "My post title",
-                titleText: "Et illum inventore ipsum molestias necessitatibus perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae cum deleniti deserunt doloremque eaque ?"
+                postText: "Et illum inventore ipsum molestias necessitatibus perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae cum deleniti deserunt doloremque eaque ?"
             }
         ],
-        newPostText: 'test text'
+        newPostText: ''
     }
 }
 
-export let addPost = (msgText) => {
+export const addMessage = () => {
     let newMsg = {
         id: state.messagesPages.messages[ state.messagesPages.messages.length - 1].id + 1,
-        text: msgText,
+        text: state.messagesPages.newMessageText,
         me: true
     }
     state.messagesPages.messages.push(newMsg);
+    state.messagesPages.newMessageText = '';
     renderEntireTree(state);
 }
 
-export let updateNewPostText = (newText) => {
+export const addPost = () => {
+    let newPost = {
+        id: state.profilePages.posts[ state.profilePages.posts.length - 1].id + 1,
+        postText: state.profilePages.newPostText
+    }
+    if(state.profilePages.newPostText !== ''){
+        state.profilePages.posts.push(newPost);
+    }
+    state.profilePages.newPostText = '';
+    renderEntireTree(state);
+}
+
+export const updateNewPostText = (newText) => {
     state.profilePages.newPostText = newText;
     renderEntireTree(state);
+}
+
+export const updateMessageText = (newText) => {
+    state.messagesPages.newMessageText = newText;
+    renderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    renderEntireTree = observer;
 }
 
 export default state;

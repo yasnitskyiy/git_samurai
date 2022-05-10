@@ -3,27 +3,33 @@ import {useRef} from "react";
 
 const SendForm = (props) => {
 
-    let newPostElement = useRef();
-    let addPost = () => {
+    let newElement = useRef();
+    let add = () => {
         if(props.where === "dialogs") {
-            props.addPost(newPostElement.current.value);
-            props.state.profilePages.newPostText('');
+            props.addMessage();
         }
         else{
-            alert(newPostElement.current.value + " PROFILE") ;
+            props.addPost();
         }
     };
 
-    let onPostChange = () => {
-        debugger;
-        props.updateNewPostText(newPostElement.current.value);
-
+    let onChange = () => {
+        if(props.where === "dialogs") {
+            props.updateMessageText(newElement.current.value)
+        }
+        else{
+            props.updateNewPostText(newElement.current.value);
+        }
     };
 
     return (
         <div className={classes.sendForm}>
-            <textarea ref={newPostElement} className={classes.textField} value={props.state.profilePages.newPostText} onChange={onPostChange} />
-            <button className={classes.btnSubmit} onClick={ addPost } >SEND</button>
+            <textarea ref={newElement} className={classes.textField} value={
+                (props.where === "dialogs") ?
+                    props.state.messagesPages.newMessageText:
+                    props.state.profilePages.newPostText
+            } onChange={onChange} />
+            <button className={classes.btnSubmit} onClick={ add } >SEND</button>
         </div>
     );
 }

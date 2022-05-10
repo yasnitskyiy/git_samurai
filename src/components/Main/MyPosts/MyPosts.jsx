@@ -1,9 +1,7 @@
-import classes from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-    let postItems = props.state.profilePages.posts.map( post => <Post title={post.title} titleText={post.titleText}/> )
-
+    let postItems = props.state.profilePages.posts.slice(0).reverse().map( post => <Post postText={post.postText}/> );
     return (
         <div>
             {postItems}

@@ -13,11 +13,14 @@ const Main = (props) => {
                 "Ad beatae cum deleniti deserunt doloremque eaque et illum inventore ipsum molestias necessitatibus \n" +
                 "perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus?"}
             />
-            <MyPosts state={props.state}/>
+            <h2>Add new post</h2>
             <SendForm state={props.state}
                       updateNewPostText={props.updateNewPostText}
                       addPost={props.addPost}
+                      addMessage={props.addMessage}
+                      where={'main'}
             />
+            <MyPosts state={props.state}/>
         </div>
     );
 }
