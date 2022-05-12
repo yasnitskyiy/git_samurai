@@ -9,16 +9,25 @@ const SendForm = (props) => {
             props.addMessage();
         }
         else{
-            props.addPost();
+            props.dispatch(
+                {
+                    type: 'ADD-POST',
+                }
+            );
         }
     };
 
     let onChange = () => {
         if(props.where === "dialogs") {
-            props.updateMessageText(newElement.current.value);
+            props.dispatch(newElement.current.value);
         }
         else{
-            props.updateNewPostText(newElement.current.value);
+            props.dispatch(
+                {
+                    type: 'UPDATE-NEW-POST-TEXT',
+                    newText: newElement.current.value
+                }
+            );
         }
     };
 

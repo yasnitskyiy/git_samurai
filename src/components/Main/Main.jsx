@@ -17,12 +17,7 @@ const Main = (props) => {
 
             <MyPosts state={props.state}/>
 
-            <SendForm state={props.state}
-                      updateNewPostText={props.updateNewPostText}
-                      addPost={props.addPost}
-                      addMessage={props.addMessage}
-                      where={'main'}
-            />
+            <SendForm state={props.state} dispatch={props.dispatch} where={'main'} />
         </div>
     );
 }
