@@ -6,7 +6,6 @@ import MessageFriend from "./Message/MessageFriend";
 
 
 const Dialogs = (props) => {
-
     let dialogsElements = props.state.messagesPages.dialogs.map( d => (<DialogItem name={d.name} id={d.id}/>) )
     let messagesElements = props.state.messagesPages.messages.map( m => (m.me)? <Message msg={m.text}/> : <MessageFriend msg={m.text}/> )
 
@@ -20,10 +19,8 @@ const Dialogs = (props) => {
             <div className={classes.messages}>
                 {messagesElements}
                 <SendForm state={props.state}
-                          updateNewPostText={props.updateNewPostText}
-                          addPost={props.addPost}
-                          addMessage={props.addMessage}
                           updateMessageText={props.updateMessageText}
+                          addMessage={props.addMessage}
                           where={'dialogs'}
                 />
             </div>

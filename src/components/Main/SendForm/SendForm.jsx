@@ -15,7 +15,7 @@ const SendForm = (props) => {
 
     let onChange = () => {
         if(props.where === "dialogs") {
-            props.updateMessageText(newElement.current.value)
+            props.updateMessageText(newElement.current.value);
         }
         else{
             props.updateNewPostText(newElement.current.value);
