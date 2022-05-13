@@ -1,11 +1,8 @@
 import classes from "./SendForm.module.css"
 import {useRef} from "react";
-import {
-    addMessageActionCreator,
-    addPostActionCreator,
-    updateNewMessageTextActionCreator,
-    updateNewPostTextActionCreator
-} from "../../../Redux/state";
+import {addMessageActionCreator, updateNewMessageTextActionCreator} from "../../../Redux/messagesReduser";
+
+import {addPostActionCreator, updateNewPostTextActionCreator} from '../../../Redux/profileReduser';
 
 const SendForm = (props) => {
 
