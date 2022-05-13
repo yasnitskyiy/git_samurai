@@ -19,8 +19,7 @@ const Dialogs = (props) => {
             <div className={classes.messages}>
                 {messagesElements}
                 <SendForm state={props.state}
-                          updateMessageText={props.updateMessageText}
-                          addMessage={props.addMessage}
+                          dispatch={props.dispatch}
                           where={'dialogs'}
                 />
             </div>

@@ -1,33 +1,30 @@
 import classes from "./SendForm.module.css"
 import {useRef} from "react";
+import {
+    addMessageActionCreator,
+    addPostActionCreator,
+    updateNewMessageTextActionCreator,
+    updateNewPostTextActionCreator
+} from "../../../Redux/state";
 
 const SendForm = (props) => {
 
     let newElement = useRef();
     let add = () => {
         if(props.where === "dialogs") {
-            props.addMessage();
+            props.dispatch(addMessageActionCreator());
         }
         else{
-            props.dispatch(
-                {
-                    type: 'ADD-POST',
-                }
-            );
+            props.dispatch(addPostActionCreator());
         }
     };
 
     let onChange = () => {
         if(props.where === "dialogs") {
-            props.dispatch(newElement.current.value);
+            props.dispatch(updateNewMessageTextActionCreator(newElement.current.value));
         }
         else{
-            props.dispatch(
-                {
-                    type: 'UPDATE-NEW-POST-TEXT',
-                    newText: newElement.current.value
-                }
-            );
+            props.dispatch(updateNewPostTextActionCreator(newElement.current.value));
         }
     };
 
