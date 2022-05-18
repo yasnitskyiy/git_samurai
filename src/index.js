@@ -4,21 +4,27 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import store from "./Redux/reduxStore"
+import {Provider} from "react-redux";
+import {BrowserRouter} from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let renderEntireTree = (state) => {
+let renderEntireTree = () => {
     root.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)} store={store} />
+            <BrowserRouter>
+                <Provider store={store}>
+                    <App />
+                </Provider>
+            </BrowserRouter>
         </React.StrictMode>
     );
 }
 
-renderEntireTree(store.getState());
+renderEntireTree();
 
 store.subscribe(() => {
-    renderEntireTree(store.getState());
+    renderEntireTree();
 });
 
 
