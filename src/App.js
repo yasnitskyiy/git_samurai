@@ -3,8 +3,8 @@ import Header from "./components/Header/Header";
 import Friends from "./components/Friend/Friends";
 import Main from "./components/Main/Main";
 import Footer from "./components/Footer/Footer";
-import Dialogs from "./components/Dialogs/Dialogs";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
     return (
@@ -13,9 +13,9 @@ const App = (props) => {
                 <Header/>
                 <div className={`content`}>
                     <Routes>
-                        <Route path="/" element={<Main state={props.state} dispatch={props.dispatch}/>}/>
-                        <Route path="/main/*" element={<Main state={props.state} dispatch={props.dispatch}/>}/>
-                        <Route path="/dialogs/*" element={<Dialogs state={props.state} dispatch={props.dispatch}/>}/>
+                        <Route path="/" element={<Main store={props.store}/>}/>
+                        <Route path="/main/*" element={<Main store={props.store}/>}/>
+                        <Route path="/dialogs/*" element={<DialogsContainer store={props.store}/>}/>
                     </Routes>
                 </div>
                 <Friends/>

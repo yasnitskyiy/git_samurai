@@ -1,27 +1,39 @@
-import classes from "./Dialogs.module.css";
+import c from "./Dialogs.module.css";
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
-import SendForm from "../Main/SendForm/SendForm";
 import MessageFriend from "./Message/MessageFriend";
+import {useRef} from "react";
 
 
 const Dialogs = (props) => {
-    let dialogsElements = props.state.messagesPages.dialogs.map( d => (<DialogItem name={d.name} id={d.id}/>) )
-    let messagesElements = props.state.messagesPages.messages.map( m => (m.me)? <Message msg={m.text}/> : <MessageFriend msg={m.text}/> )
+    let dialogsElements = props.dialogs.map( d => (<DialogItem name={d.name} id={d.id}/>) )
+    let messagesElements = props.messages.map( m => (m.me)? <Message msg={m.text}/> : <MessageFriend msg={m.text}/> )
+
+    let newElement = useRef();
+
+    let addMessage = () => {
+        props.addMessage();
+    };
+
+    let onMessageChange = () => {
+        props.updateNewMessageText(newElement.current.value);
+    };
 
     return (
-        <div className={classes.dialogs}>
-            <div className={classes.dialogsItems}>
+        <div className={c.dialogs}>
+
+            <div className={c.dialogsItems}>
                 <ul>
                     {dialogsElements}
                 </ul>
             </div>
-            <div className={classes.messages}>
+
+            <div className={c.messages}>
                 {messagesElements}
-                <SendForm state={props.state}
-                          dispatch={props.dispatch}
-                          where={'dialogs'}
-                />
+                <div className={c.sendForm}>
+                    <textarea ref={newElement} className={c.textField} value={ props.newMessageText} onChange={ onMessageChange } />
+                    <button className={c.btnSubmit} onClick={addMessage}>SEND</button>
+                </div>
             </div>
 
         </div>
