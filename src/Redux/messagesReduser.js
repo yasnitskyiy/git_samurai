@@ -11,7 +11,8 @@ let initialState = {
     messages: [
         {id: 1, text: "Hello world", me: true},
         {id: 2, text: "React cool, how about continue work a bit harder?!", me: true},
-        {id: 3, text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." +
+        {
+            id: 3, text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit." +
                 " Accusamus amet animi aperiam dignissimos distinctio fuga impedit" +
                 " itaque, nemo odit officiis placeat quia ratione reiciendis saepe" +
                 " sunt ullam ut voluptas voluptatem?", me: false
@@ -24,28 +25,27 @@ let initialState = {
 };
 
 const messagesReducer = (state = initialState, action) => {
-    switch (action.type){
-        case ADD_MESSAGE: {
+    switch (action.type) {
+        case ADD_MESSAGE:
             let newMsg = {
                 id: state.messages[state.messages.length - 1].id + 1,
                 text: state.newMessageText,
                 me: true
             }
-            let stateCopy = {...state};
-            stateCopy.messages = [...state.messages];
-            stateCopy.newMessageText = {...state.newMessageText};
+            return {
+                ...state,
+                messages: [...state.messages, newMsg],
+                newMessageText: '',
+            };
 
-            stateCopy.messages.push(newMsg);
-            stateCopy.newMessageText = '';
-            return stateCopy;
-        }
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.newMessageText = action.newText;
-            return stateCopy;
-        }
+        case UPDATE_NEW_MESSAGE_TEXT:
+            return {
+                ...state,
+                newMessageText: action.newText
+            };
+
         default:
-            console.log('EMPTY');
+            console.log('DEFAULT');
             return state;
     }
 }

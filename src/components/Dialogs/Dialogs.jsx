@@ -6,8 +6,8 @@ import {useRef} from "react";
 
 
 const Dialogs = (props) => {
-    let dialogsElements = props.dialogs.map( d => (<DialogItem name={d.name} id={d.id}/>) )
-    let messagesElements = props.messages.map( m => (m.me)? <Message msg={m.text}/> : <MessageFriend msg={m.text}/> )
+    let dialogsElements = props.dialogs.map( d => (<DialogItem name={d.name} key={d.id} id={d.id}/>) )
+    let messagesElements = props.messages.map( m => (m.me)? <Message msg={m.text} key={m.id}/> : <MessageFriend key={m.id} msg={m.text}/> )
 
     let newElement = useRef();
 

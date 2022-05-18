@@ -2,7 +2,7 @@ const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 let initialState = {
-    posts:[
+    posts: [
         {
             id: 1,
             postText: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad beatae cum deleniti deserunt doloremque eaque et illum inventore ipsum molestias necessitatibus  perferendis praesentium provident quia, rem sit temporibus, tenetur voluptatibus?"
@@ -23,21 +23,20 @@ const profileReducer = (state = initialState, action) => {
                 id: state.posts[state.posts.length - 1].id + 1,
                 postText: state.newPostText
             };
-            let stateCopy = {...state};
-            stateCopy.posts = [...state.posts];
-            if (state.newPostText !== '') {
-                stateCopy.posts.push(newPost);
-                stateCopy.newPostText = '';
-            }
-            return stateCopy;
+            return {
+                ...state,
+                posts: [...state.posts, newPost],
+                newPostText: '',
+            };
         }
         case UPDATE_NEW_POST_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
+            return {
+                ...state,
+                newPostText: action.newText,
+            };
         }
         default:
-            console.log('EMPTY');
+            console.log('DEFAULT');
             return state;
     }
 }

@@ -5,7 +5,7 @@ import {useRef} from "react";
 
 const MyPosts = (props) => {
 
-    let postItems = props.posts.slice(0).reverse().map( post => <Post postText={post.postText}/> );
+    let postItems = props.posts.slice(0).reverse().map( post => <Post postText={post.postText} key={post.id}/> );
     let newElement = useRef();
 
     let addPost = () => {
