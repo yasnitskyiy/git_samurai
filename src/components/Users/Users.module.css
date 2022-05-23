@@ -1,0 +1,45 @@
+.user{
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-areas:
+            'userPhoto fullName'
+            'followBtn status';
+    background-color: #fff8ca;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.userPhoto{
+    grid-area: userPhoto;
+    height: 70px;
+    display: block;
+    margin: 0 auto;
+}
+.followBtn{
+    grid-area: followBtn;
+    text-align: center;
+    margin-top: 10px;
+    height: 25px;
+    background-color: green;
+}
+.unFollowBtn{
+    grid-area: followBtn;
+    text-align: center;
+    margin-top: 10px;
+    height: 25px;
+    background-color: red;
+}
+.fullName{
+    display: flex;
+    justify-content: space-between;
+    grid-area: fullName;
+    margin: 0 0 0 10px;
+}
+.status{
+    grid-area: status;
+    margin: 0 0 0 10px;
+    text-align: justify;
+}
+.location{
+    text-align: right;
+}
